@@ -1,0 +1,17 @@
+@using HairSalon.Models;
+@model Stylist;
+
+<div class="border">
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    <br>
+
+    @Html.LabelFor(model => model.Specialty)
+    @Html.DropDownListFor(model => model.Specialty, new SelectList(Enum.GetValues(typeof(Specialty)), "Select Specialty"))
+    <br>
+    <input type="submit" value="Create" />
+  }
+  <p class="hypbutton">@Html.ActionLink("Show all Stylists", "Index")</p>
+</div>
