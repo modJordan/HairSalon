@@ -10,3 +10,4 @@ public class HairSalonContext : DbContext
   public HairSalonContext (DbContextOptions<HairSalonContext> options) : base(options) { }
 
 }
+

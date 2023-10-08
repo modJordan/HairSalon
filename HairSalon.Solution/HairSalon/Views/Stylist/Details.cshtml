@@ -1,0 +1,28 @@
+@using HairSalon.Models;
+@model Stylist
+
+<div class="border">
+  <h1>@Html.DisplayFor(model => model.Name)</h1>
+
+  @if (Model.Clients != null && Model.Clients.Any())
+  {
+    <h2>Clients for @Html.DisplayFor(model => model.Name):</h2>
+    foreach (Client client in Model.Clients)
+    {
+      <div class="miniBorder">
+        <p>Client Name: @client.Name</p>
+        <p>Contact: @client.Contact</p>
+      </div>
+    }
+  }
+  else
+  {
+    <p>No clients available for this stylist.</p>
+
+    <p>@Html.ActionLink("Add a client to your stylists client book", "Create", "Client")</p>
+  }
+
+  <p class="hypbutton">@Html.ActionLink("Back to List", "Index")</p>
+  <br>
+  <p class="hypbutton">@Html.ActionLink("Go Home", "Index", "Home")</p>
+</div>
