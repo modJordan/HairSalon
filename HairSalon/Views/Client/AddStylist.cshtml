@@ -1,0 +1,18 @@
+@using HairSalon.Models;
+@model Client
+
+<div class="border">
+  <h1>Add a stylist for @Model.Name</h1>
+
+  @if (ViewBag.StylistId == null || !((SelectList)ViewBag.StylistId).Any())
+  {
+    <h3>No stylists have been added.</h3>
+  }
+  else
+  {
+    @Html.BeginForm()
+    @Html.DropDownListFor(model => model.StylistId, (SelectList)ViewBag.StylistId, "Select Stylist")
+
+
+    <input type="submit" value="Create" />
+  }
